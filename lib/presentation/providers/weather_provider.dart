@@ -1,4 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../domain/repositories/weather_repository.dart';
+import '../../domain/use_cases/get_current_weather.dart';
+import '../../domain/use_cases/get_forecast.dart';
+import '../../data/repositories/weather_repository_impl.dart';
 import '../../data/data_sources/remote/weather_api_service.dart';
 import '../../data/data_sources/local/local_storage_service.dart';
 import '../../core/network/api_client.dart';
@@ -14,6 +18,23 @@ final apiClientProvider = Provider<ApiClient>((ref) {
 final weatherApiServiceProvider = Provider<WeatherApiService>((ref) {
   final apiClient = ref.watch(apiClientProvider);
   return WeatherApiService(apiClient);
+});
+
+// Provider for WeatherRepository
+final weatherRepositoryProvider = Provider<WeatherRepository>((ref) {
+  final apiService = ref.watch(weatherApiServiceProvider);
+  return WeatherRepositoryImpl(apiService);
+});
+
+// Provider for Use Cases
+final getCurrentWeatherProvider = Provider<GetCurrentWeather>((ref) {
+  final repository = ref.watch(weatherRepositoryProvider);
+  return GetCurrentWeather(repository);
+});
+
+final getForecastProvider = Provider<GetForecast>((ref) {
+  final repository = ref.watch(weatherRepositoryProvider);
+  return GetForecast(repository);
 });
 
 // Provider for LocalStorageService
@@ -64,7 +85,7 @@ class WeatherNotifier extends StateNotifier<WeatherState> {
 
   /// Fetch weather by city name
   Future<void> fetchWeatherByCity(String cityName) async {
-    state = state.copyWith(isLoading: true, error: null);
+    state = state. copyWith(isLoading: true, error: null);
 
     try {
       // Check cache first
@@ -98,7 +119,7 @@ class WeatherNotifier extends StateNotifier<WeatherState> {
     await _storageService.cacheWeatherData(cityName, weather. toJson());
     
     // Save as last location
-    await _storageService.saveLastLocation(cityName);
+    await _storageService. saveLastLocation(cityName);
 
     state = state.copyWith(
       weather: weather,
@@ -121,15 +142,15 @@ class WeatherNotifier extends StateNotifier<WeatherState> {
       state = state.copyWith(
         weather: weather,
         currentCity: weather.cityName,
-        isLoading:  false,
+        isLoading: false,
       );
 
       // Save location
       await _storageService. saveLastLocation(weather.cityName);
     } catch (e) {
       state = state.copyWith(
-        isLoading:  false,
-        error: e. toString(),
+        isLoading: false,
+        error: e.toString(),
       );
     }
   }

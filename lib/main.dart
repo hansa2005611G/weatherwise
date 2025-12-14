@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:weatherwise/presentation/screens/forecast/forecast_detail_screen.dart';
 import 'core/theme/app_theme.dart';
 import 'presentation/screens/splash/splash_screen.dart';
 import 'presentation/screens/home/home_screen.dart';
@@ -66,6 +67,7 @@ class WeatherWiseApp extends ConsumerWidget {
         '/favorites': (context) => const FavoritesScreen(),
         '/settings': (context) => const SettingsScreen(),
         '/alerts': (context) => const AlertsScreen(),
+        '/forecast':  (context) => const ForecastDetailScreen(cityName: 'London'),
       },
     );
   }

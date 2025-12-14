@@ -8,7 +8,7 @@ import 'widgets/weather_app_bar.dart';
 import 'widgets/weather_header.dart';
 import 'widgets/weather_details_grid.dart';
 import 'widgets/hourly_forecast_section.dart';
-import 'widgets/daily_forecast_section. dart';
+import 'widgets/daily_forecast_section.dart';
 import 'widgets/weather_background.dart';
 import '../../../core/utils/weather_icon_mapper.dart';
 

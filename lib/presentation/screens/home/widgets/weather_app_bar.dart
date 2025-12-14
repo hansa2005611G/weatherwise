@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../providers/favorites_provider.dart';
 
-class WeatherAppBar extends StatelessWidget implements PreferredSizeWidget {
+class WeatherAppBar extends ConsumerWidget implements PreferredSizeWidget {
   final String cityName;
   final VoidCallback onSearchTap;
   final VoidCallback onFavoriteTap;
@@ -8,19 +10,21 @@ class WeatherAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   const WeatherAppBar({
     super.key,
-    required this. cityName,
-    required this. onSearchTap,
-    required this.onFavoriteTap,
+    required this.cityName,
+    required this.onSearchTap,
+    required this. onFavoriteTap,
     required this.onMenuTap,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isFavorite = ref.watch(favoritesProvider. notifier).isFavorite(cityName);
+
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      leading:  IconButton(
-        icon: const Icon(Icons.menu, color: Colors.white),
+      leading: IconButton(
+        icon:  const Icon(Icons.menu, color: Colors.white),
         onPressed: onMenuTap,
         tooltip: 'Menu',
       ),
@@ -37,7 +41,7 @@ class WeatherAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Text(
               cityName,
               style:  const TextStyle(
-                color: Colors.white,
+                color:  Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
@@ -47,21 +51,36 @@ class WeatherAppBar extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       centerTitle: true,
-      actions:  [
+      actions: [
         IconButton(
           icon: const Icon(Icons.search, color: Colors.white),
           onPressed: onSearchTap,
           tooltip: 'Search',
         ),
         IconButton(
-          icon: const Icon(Icons.favorite_outline, color: Colors.white),
-          onPressed: onFavoriteTap,
-          tooltip: 'Favorites',
+          icon: Icon(
+            isFavorite ? Icons.favorite : Icons.favorite_outline,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            if (isFavorite) {
+              ref.read(favoritesProvider.notifier).removeCity(cityName);
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content:  Text('Removed from favorites')),
+              );
+            } else {
+              ref.read(favoritesProvider. notifier).addCity(cityName);
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Added to favorites')),
+              );
+            }
+          },
+          tooltip: isFavorite ? 'Remove from Favorites' : 'Add to Favorites',
         ),
       ],
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size. fromHeight(kToolbarHeight);
 }

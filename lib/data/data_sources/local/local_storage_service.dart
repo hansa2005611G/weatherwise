@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:weatherwise/data/models/alert_model.dart';
 import 'dart:convert';
 import '../../../core/constants/app_constants.dart';
 
@@ -9,6 +10,44 @@ class LocalStorageService {
   Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
   }
+  
+// Alerts
+Future<bool> saveAlerts(List<WeatherAlert> alerts) async {
+  final jsonList = alerts.map((alert) => alert.toJson()).toList();
+  final jsonString = json.encode(jsonList);
+  return await _prefs.setString('weather_alerts', jsonString);
+}
+
+List<WeatherAlert> getAlerts() {
+  final jsonString = _prefs.getString('weather_alerts');
+  if (jsonString == null) return [];
+
+  try {
+    final jsonList = json.decode(jsonString) as List;
+    return jsonList.map((json) => WeatherAlert.fromJson(json)).toList();
+  } catch (e) {
+    return [];
+  }
+}
+
+// Alert Notifications
+Future<bool> saveAlertNotifications(List<AlertNotification> notifications) async {
+  final jsonList = notifications.map((n) => n.toJson()).toList();
+  final jsonString = json.encode(jsonList);
+  return await _prefs.setString('alert_notifications', jsonString);
+}
+
+List<AlertNotification> getAlertNotifications() {
+  final jsonString = _prefs. getString('alert_notifications');
+  if (jsonString == null) return [];
+
+  try {
+    final jsonList = json.decode(jsonString) as List;
+    return jsonList.map((json) => AlertNotification.fromJson(json)).toList();
+  } catch (e) {
+    return [];
+  }
+}
 
   // Favorite Cities
   Future<bool> saveFavoriteCities(List<String> cities) async {
@@ -33,6 +72,16 @@ class LocalStorageService {
     cities.remove(city);
     return await saveFavoriteCities(cities);
   }
+  
+  // Recent Searches
+  Future<bool> saveRecentSearches(List<String> searches) async {
+    return await _prefs.setStringList('recent_searches', searches);
+  }
+
+  List<String> getRecentSearches() {
+  return _prefs.getStringList('recent_searches') ?? [];
+  }
+  
 
   // Temperature Unit
   Future<bool> setTemperatureUnit(bool isCelsius) async {
@@ -51,6 +100,46 @@ class LocalStorageService {
   bool getThemeMode() {
     return _prefs.getBool(AppConstants.keyThemeMode) ?? false;
   }
+  // Add these methods to the LocalStorageService class
+
+// Wind Speed Unit
+Future<bool> setWindSpeedUnit(String unit) async {
+  return await _prefs.setString('wind_speed_unit', unit);
+}
+
+String getWindSpeedUnit() {
+  return _prefs.getString('wind_speed_unit') ?? 'km/h';
+}
+
+// Refresh Interval
+Future<bool> setRefreshInterval(int minutes) async {
+  return await _prefs.setInt('refresh_interval', minutes);
+}
+
+int getRefreshInterval() {
+  return _prefs.getInt('refresh_interval') ?? 30;
+}
+
+// Language
+Future<bool> setLanguage(String language) async {
+  return await _prefs.setString('language', language);
+}
+
+String getLanguage() {
+  return _prefs.getString('language') ?? 'en';
+}
+
+// Clear weather cache
+Future<bool> clearWeatherCache() async {
+  final keys = _prefs.getKeys();
+  final cacheKeys = keys.where((key) => key.startsWith(AppConstants.keyCachedWeather));
+  
+  for (var key in cacheKeys) {
+    await _prefs.remove(key);
+  }
+  
+  return true;
+}
 
   // Notifications
   Future<bool> setNotificationsEnabled(bool enabled) async {

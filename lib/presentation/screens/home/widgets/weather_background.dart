@@ -1,4 +1,4 @@
-import 'package:flutter/material. dart';
+import 'package:flutter/material.dart';
 
 class WeatherBackground extends StatelessWidget {
   final List<Color> gradient;

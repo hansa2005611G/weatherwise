@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'core/theme/app_theme.dart';
+import 'presentation/screens/splash/splash_screen.dart';
 import 'presentation/screens/home/home_screen.dart';
+import 'presentation/screens/search/search_screen.dart';
+import 'presentation/screens/favorites/favorites_screen.dart';
+import 'presentation/screens/settings/settings_screen.dart';
+import 'presentation/screens/alerts/alerts_screen.dart';
 import 'presentation/providers/settings_provider.dart';
 import 'data/data_sources/local/local_storage_service.dart';
 
+
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding. ensureInitialized();
 
   // Initialize local storage
   final localStorage = LocalStorageService();
@@ -17,12 +23,12 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors. transparent,
-      statusBarIconBrightness:  Brightness.light,
+      statusBarIconBrightness: Brightness.light,
     ),
   );
 
   // Set preferred orientations
-  await SystemChrome. setPreferredOrientations([
+  await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
@@ -50,16 +56,16 @@ class WeatherWiseApp extends ConsumerWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: settings.isDarkMode ? ThemeMode.dark : ThemeMode.light,
 
-      // Home
-      home: const HomeScreen(),
+      // Start with Splash Screen
+      home: const SplashScreen(),  // Changed from HomeScreen
 
       // Routes
       routes: {
         '/home': (context) => const HomeScreen(),
-        '/search': (context) => const Placeholder(), // TODO:  Implement
-        '/favorites': (context) => const Placeholder(), // TODO: Implement
-        '/alerts': (context) => const Placeholder(), // TODO: Implement
-        '/settings': (context) => const Placeholder(), // TODO: Implement
+        '/search': (context) => const SearchScreen(),
+        '/favorites': (context) => const FavoritesScreen(),
+        '/settings': (context) => const SettingsScreen(),
+        '/alerts': (context) => const AlertsScreen(),
       },
     );
   }

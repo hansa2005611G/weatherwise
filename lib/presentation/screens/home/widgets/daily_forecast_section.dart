@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod. dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../data/models/forecast_model.dart';
 import '../../../../core/utils/weather_icon_mapper.dart';
 import '../../../../core/utils/temperature_converter.dart';

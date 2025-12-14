@@ -15,7 +15,6 @@ class AppTheme {
       primary: AppColors.primary,
       secondary: AppColors.secondary,
       surface: AppColors.cardLight,
-      background: AppColors.backgroundLight,
       error: AppColors.error,
     ),
 
@@ -24,19 +23,19 @@ class AppTheme {
     appBarTheme: AppBarTheme(
       elevation: 0,
       centerTitle: true,
-      backgroundColor:  Colors.transparent,
+      backgroundColor: Colors.transparent,
       foregroundColor: AppColors.textPrimary,
       titleTextStyle: GoogleFonts.poppins(
         fontSize: 20,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w600,  // ✅ Fixed
         color: AppColors.textPrimary,
       ),
     ),
 
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       elevation: 4,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius:  BorderRadius.circular(16),
       ),
       color: AppColors.cardLight,
     ),
@@ -44,7 +43,7 @@ class AppTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primary,
-        foregroundColor: AppColors. textLight,
+        foregroundColor: AppColors.textLight,
         elevation: 2,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         shape: RoundedRectangleBorder(
@@ -52,7 +51,7 @@ class AppTheme {
         ),
         textStyle: GoogleFonts.poppins(
           fontSize: 16,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w600,  // ✅ Fixed
         ),
       ),
     ),
@@ -65,20 +64,20 @@ class AppTheme {
         borderSide: BorderSide.none,
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius:  BorderRadius.circular(12),
         borderSide: const BorderSide(color: AppColors.primary, width: 2),
       ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical:  16),
       hintStyle: GoogleFonts.poppins(
         color: AppColors.textSecondary,
       ),
     ),
 
     chipTheme: ChipThemeData(
-      backgroundColor: AppColors.primary. withOpacity(0.1),
+      backgroundColor: AppColors. primary. withOpacity(0.1),
       labelStyle: GoogleFonts.poppins(
         color: AppColors.primary,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w500,  // ✅ Fixed
       ),
       shape: RoundedRectangleBorder(
         borderRadius:  BorderRadius.circular(8),
@@ -96,7 +95,6 @@ class AppTheme {
       primary: AppColors.primary,
       secondary: AppColors.secondary,
       surface: AppColors.cardDark,
-      background: AppColors.backgroundDark,
       error: AppColors.error,
     ),
 
@@ -106,30 +104,30 @@ class AppTheme {
       elevation: 0,
       centerTitle: true,
       backgroundColor: Colors.transparent,
-      foregroundColor: AppColors.textLight,
+      foregroundColor: AppColors. textLight,
       titleTextStyle: GoogleFonts.poppins(
         fontSize: 20,
-        fontWeight: FontWeight.w600,
-        color: AppColors.textLight,
+        fontWeight: FontWeight.w600,  // ✅ Fixed
+        color: AppColors. textLight,
       ),
     ),
 
-    cardTheme: CardTheme(
-      elevation:  4,
+cardTheme: CardThemeData(
+      elevation: 4,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius. circular(16),
       ),
       color: AppColors.cardDark,
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primary,
-        foregroundColor: AppColors.textLight,
+        backgroundColor: AppColors. primary,
+        foregroundColor:  AppColors.textLight,
         elevation: 2,
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical:  12),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius. circular(12),
         ),
       ),
     ),

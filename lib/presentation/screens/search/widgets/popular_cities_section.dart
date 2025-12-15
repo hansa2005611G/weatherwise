@@ -69,13 +69,16 @@ class PopularCitiesSection extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
+              // ignore: deprecated_member_use
               AppColors.primary.withOpacity(0.8),
+              // ignore: deprecated_member_use
               AppColors.primaryLight.withOpacity(0.6),
             ],
           ),
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
+              // ignore: deprecated_member_use
               color: AppColors.primary.withOpacity(0.3),
               blurRadius: 8,
               offset: const Offset(0, 4),
@@ -114,6 +117,7 @@ class PopularCitiesSection extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(4),
                         decoration: BoxDecoration(
+                          // ignore: deprecated_member_use
                           color: Colors.white. withOpacity(0.3),
                           shape: BoxShape.circle,
                         ),
@@ -141,6 +145,7 @@ class PopularCitiesSection extends StatelessWidget {
                         city.country,
                         style: TextStyle(
                           fontSize: 12,
+                          // ignore: deprecated_member_use
                           color: Colors. white.withOpacity(0.9),
                         ),
                       ),

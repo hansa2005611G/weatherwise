@@ -34,6 +34,7 @@ class _AlertsScreenState extends ConsumerState<AlertsScreen>
   Widget build(BuildContext context) {
     final alertsState = ref.watch(alertsProvider);
     final activeAlerts = alertsState.alerts.where((a) => a.isEnabled).toList();
+    // ignore: unused_local_variable
     final inactiveAlerts = alertsState.alerts.where((a) => !a.isEnabled).toList();
 
     return Scaffold(
@@ -174,6 +175,7 @@ class _AlertsScreenState extends ConsumerState<AlertsScreen>
                     Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
+                        // ignore: deprecated_member_use
                         color: Colors.green. withOpacity(0.1),
                         shape: BoxShape.circle,
                       ),
@@ -221,6 +223,7 @@ class _AlertsScreenState extends ConsumerState<AlertsScreen>
                     Container(
                       padding: const EdgeInsets.all(8),
                       decoration:  BoxDecoration(
+                        // ignore: deprecated_member_use
                         color: Colors.grey.withOpacity(0.1),
                         shape: BoxShape.circle,
                       ),

@@ -95,9 +95,9 @@ class _SplashScreenLottieState extends ConsumerState<SplashScreenLottie> {
               FadeInUp(
                 duration: const Duration(milliseconds: 800),
                 delay:  const Duration(milliseconds: 500),
-                child: Text(
+                child: const Text(
                   AppConstants.appName,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,

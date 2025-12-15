@@ -1,9 +1,9 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:animate_do/animate_do.dart';
 import '../../providers/weather_provider.dart';
-import '../../providers/settings_provider.dart';
-import '../../providers/favorites_provider.dart';
 import 'widgets/weather_app_bar.dart';
 import 'widgets/weather_header.dart';
 import 'widgets/weather_details_grid.dart';

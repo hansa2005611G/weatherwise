@@ -74,6 +74,7 @@ class WeatherHeader extends ConsumerWidget {
             )}',
             style: TextStyle(
               fontSize: 16,
+              // ignore: deprecated_member_use
               color: Colors.white.withOpacity(0.9),
             ),
           ),
@@ -85,6 +86,7 @@ class WeatherHeader extends ConsumerWidget {
             DateFormatter. formatFullDate(weather.dateTime),
             style: TextStyle(
               fontSize: 14,
+              // ignore: deprecated_member_use
               color: Colors.white.withOpacity(0.8),
             ),
           ),
@@ -133,6 +135,7 @@ class WeatherHeader extends ConsumerWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
+        // ignore: deprecated_member_use
         color: Colors.white.withOpacity(0.2),
         borderRadius: BorderRadius.circular(20),
       ),

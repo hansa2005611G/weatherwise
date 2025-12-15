@@ -124,6 +124,7 @@ class AlertHistorySection extends ConsumerWidget {
       },
       child: Container(
         padding: const EdgeInsets.all(16),
+        // ignore: deprecated_member_use
         color: notification.isRead ?  null : Colors.blue.withOpacity(0.05),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,7 +134,9 @@ class AlertHistorySection extends ConsumerWidget {
               padding:  const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 color: notification.isRead
+                    // ignore: deprecated_member_use
                     ? Colors.grey.withOpacity(0.1)
+                    // ignore: deprecated_member_use
                     : Colors.orange.withOpacity(0.1),
                 shape: BoxShape. circle,
               ),

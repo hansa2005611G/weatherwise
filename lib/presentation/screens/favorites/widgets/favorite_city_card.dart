@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../../data/models/weather_model.dart';
 import '../../../../core/utils/weather_icon_mapper.dart';
 import '../../../../core/utils/temperature_converter.dart';
 import '../../../providers/settings_provider.dart';
@@ -33,6 +32,7 @@ class FavoriteCityCard extends ConsumerWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
+              // ignore: deprecated_member_use
               color:  Colors.black.withOpacity(0.1),
               blurRadius: 10,
               offset: const Offset(0, 4),
@@ -49,6 +49,7 @@ class FavoriteCityCard extends ConsumerWidget {
                 icon: Container(
                   padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
+                    // ignore: deprecated_member_use
                     color:  Colors.white. withOpacity(0.3),
                     shape: BoxShape.circle,
                   ),
@@ -59,9 +60,9 @@ class FavoriteCityCard extends ConsumerWidget {
                   ),
                 ),
                 itemBuilder: (context) => [
-                  PopupMenuItem(
+                  const PopupMenuItem(
                     value:  'edit',
-                    child: const Row(
+                    child: Row(
                       children: [
                         Icon(Icons.edit, size: 20),
                         SizedBox(width: 8),
@@ -69,9 +70,9 @@ class FavoriteCityCard extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  PopupMenuItem(
+                  const PopupMenuItem(
                     value: 'delete',
-                    child: const Row(
+                    child: Row(
                       children: [
                         Icon(Icons.delete, size: 20, color: Colors.red),
                         SizedBox(width: 8),

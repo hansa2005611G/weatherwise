@@ -103,6 +103,7 @@ class DailySummaryCard extends StatelessWidget {
                   margin: const EdgeInsets.only(right: 12),
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
+                    // ignore: deprecated_member_use
                     color: Theme.of(context).primaryColor. withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),

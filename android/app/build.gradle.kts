@@ -1,38 +1,48 @@
 plugins {
-    id("com. android.application")
-    id("kotlin-android")
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
     id("dev.flutter.flutter-gradle-plugin")
 }
 
 android {
     namespace = "com.example.weatherwise"
-    compileSdk = 34  // ✅ Update this
-
-    compileOptions {
-        // ✅ ADD THESE LINES
-        isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.weatherwise"
-        minSdk = 21
-        targetSdk = 34  // ✅ Update this
+        minSdk = flutter.minSdkVersion
+        targetSdk = 36
+
         versionCode = 1
-        versionName = "1.0.0"
-        
-        // ✅ ADD THIS LINE
+        versionName = "1.0"
+
         multiDexEnabled = true
     }
 
+    compileOptions {
+        // ✅ REQUIRED for flutter_local_notifications
+        isCoreLibraryDesugaringEnabled = true
+
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+
+    sourceSets["main"].java.srcDir("src/main/kotlin")
+
     buildTypes {
-        release {
+        getByName("release") {
+            isMinifyEnabled = false
+            isShrinkResources = false
             signingConfig = signingConfigs.getByName("debug")
+        }
+
+        getByName("debug") {
+            isMinifyEnabled = false
+            isShrinkResources = false
         }
     }
 }
@@ -42,6 +52,9 @@ flutter {
 }
 
 dependencies {
-   
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs: 2.0.4")
+    // Material Components (required for theme)
+    implementation("com.google.android.material:material:1.11.0")
+
+    // ✅ REQUIRED for Java 8+ APIs used by plugins
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 }

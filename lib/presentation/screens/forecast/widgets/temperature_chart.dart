@@ -68,6 +68,7 @@ class TemperatureChart extends StatelessWidget {
         horizontalInterval: 5,
         getDrawingHorizontalLine: (value) {
           return FlLine(
+            // ignore: deprecated_member_use
             color: Colors. grey.withOpacity(0.2),
             strokeWidth: 1,
           );
@@ -150,7 +151,9 @@ class TemperatureChart extends StatelessWidget {
             show: true,
             gradient: LinearGradient(
               colors: [
+                // ignore: deprecated_member_use
                 const Color(0xFF4A90E2).withOpacity(0.3),
+                // ignore: deprecated_member_use
                 const Color(0xFF87CEEB).withOpacity(0.1),
               ],
               begin: Alignment.topCenter,

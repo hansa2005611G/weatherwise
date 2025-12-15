@@ -97,7 +97,9 @@ class HourlyForecastSection extends ConsumerWidget {
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
       decoration: BoxDecoration(
         color: isNow
+            // ignore: deprecated_member_use
             ? Colors.white.withOpacity(0.3)
+            // ignore: deprecated_member_use
             : Colors.white. withOpacity(0.2),
         borderRadius: BorderRadius. circular(16),
         border: isNow

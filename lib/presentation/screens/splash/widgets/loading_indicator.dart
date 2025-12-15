@@ -81,6 +81,7 @@ class LoadingPainter extends CustomPainter {
       final dotY = center.dy + radius * math.sin(angle);
 
       final dotPaint = Paint()
+        // ignore: deprecated_member_use
         ..color = Colors.white. withOpacity(1.0 - (i * 0.3))
         ..style = PaintingStyle.fill;
 

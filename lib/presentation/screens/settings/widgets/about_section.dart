@@ -37,6 +37,7 @@ class AboutSection extends StatelessWidget {
                 leading:  Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
+                    // ignore: deprecated_member_use
                     color: Colors.blue.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
@@ -46,9 +47,9 @@ class AboutSection extends StatelessWidget {
                     size: 24,
                   ),
                 ),
-                title:  Text(
+                title:  const Text(
                   AppConstants.appName,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
                   ),
@@ -70,6 +71,7 @@ class AboutSection extends StatelessWidget {
                 leading: Container(
                   padding: const EdgeInsets.all(8),
                   decoration:  BoxDecoration(
+                    // ignore: deprecated_member_use
                     color: Colors.green.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
@@ -106,6 +108,7 @@ class AboutSection extends StatelessWidget {
                 leading: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
+                    // ignore: deprecated_member_use
                     color: Colors.orange.withOpacity(0.1),
                     borderRadius: BorderRadius. circular(8),
                   ),
@@ -146,6 +149,7 @@ class AboutSection extends StatelessWidget {
                 leading: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
+                    // ignore: deprecated_member_use
                     color: Colors.purple.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
@@ -180,6 +184,7 @@ class AboutSection extends StatelessWidget {
                 leading: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
+                    // ignore: deprecated_member_use
                     color: Colors.red.withOpacity(0.1),
                     borderRadius: BorderRadius. circular(8),
                   ),
@@ -220,6 +225,7 @@ class AboutSection extends StatelessWidget {
       applicationIcon: Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
+          // ignore: deprecated_member_use
           color: Colors.blue.withOpacity(0.1),
           borderRadius: BorderRadius.circular(12),
         ),

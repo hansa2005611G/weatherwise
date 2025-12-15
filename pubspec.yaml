@@ -53,7 +53,8 @@ dependencies:
   uuid: ^4.2.1
   
   # Notifications
-  flutter_local_notifications:  ^16.3.0
+  flutter_local_notifications: ^17.1.0
+
 
 
 

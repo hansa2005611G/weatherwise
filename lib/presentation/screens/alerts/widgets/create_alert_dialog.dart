@@ -58,7 +58,7 @@ class _CreateAlertDialogState extends ConsumerState<CreateAlertDialog> {
               ),
               const SizedBox(height:  8),
               DropdownButtonFormField<String>(
-                value: _selectedCity,
+                initialValue: _selectedCity,
                 decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.location_city),
                   border: OutlineInputBorder(),
@@ -143,7 +143,9 @@ class _CreateAlertDialogState extends ConsumerState<CreateAlertDialog> {
                       child: RadioListTile<AlertCondition>(
                         title: const Text('Above'),
                         value: AlertCondition.above,
+                        // ignore: deprecated_member_use
                         groupValue: _selectedCondition,
+                        // ignore: deprecated_member_use
                         onChanged: (value) {
                           setState(() {
                             _selectedCondition = value! ;
@@ -156,7 +158,9 @@ class _CreateAlertDialogState extends ConsumerState<CreateAlertDialog> {
                       child:  RadioListTile<AlertCondition>(
                         title: const Text('Below'),
                         value:  AlertCondition.below,
+                        // ignore: deprecated_member_use
                         groupValue: _selectedCondition,
+                        // ignore: deprecated_member_use
                         onChanged: (value) {
                           setState(() {
                             _selectedCondition = value!;
@@ -202,6 +206,7 @@ class _CreateAlertDialogState extends ConsumerState<CreateAlertDialog> {
                       vertical: 8,
                     ),
                     decoration: BoxDecoration(
+                      // ignore: deprecated_member_use
                       color: Theme.of(context).primaryColor. withOpacity(0.1),
                       borderRadius: BorderRadius.circular(8),
                     ),

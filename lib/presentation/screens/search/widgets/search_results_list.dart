@@ -30,6 +30,7 @@ class SearchResultsList extends StatelessWidget {
       leading: Container(
         padding: const EdgeInsets. all(12),
         decoration:  BoxDecoration(
+          // ignore: deprecated_member_use
           color:  Theme.of(context).primaryColor.withOpacity(0.1),
           shape: BoxShape.circle,
         ),

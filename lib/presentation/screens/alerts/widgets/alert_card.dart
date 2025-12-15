@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../data/models/alert_model.dart';
-import 'package:weatherwise/data/models/alert_model.dart';
-import '../../../../core/theme/app_colors.dart';
+
 
 class AlertCard extends StatelessWidget {
   final WeatherAlert alert;
@@ -45,6 +44,7 @@ class AlertCard extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets. all(12),
                     decoration: BoxDecoration(
+                      // ignore: deprecated_member_use
                       color: _getAlertColor().withOpacity(0.1),
                       shape: BoxShape. circle,
                     ),
@@ -84,7 +84,7 @@ class AlertCard extends StatelessWidget {
                   Switch(
                     value: alert. isEnabled,
                     onChanged: (value) => onToggle(),
-                    activeColor: _getAlertColor(),
+                    activeThumbColor: _getAlertColor(),
                   ),
                 ],
               ),
@@ -95,6 +95,7 @@ class AlertCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
+                  // ignore: deprecated_member_use
                   color: _getAlertColor().withOpacity(0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),

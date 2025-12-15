@@ -7,8 +7,6 @@ import '../../providers/settings_provider.dart';
 import 'widgets/temperature_chart.dart';
 import 'widgets/hourly_detail_card.dart';
 import 'widgets/daily_summary_card.dart';
-import '../../../core/utils/date_formatter.dart';
-import 'widgets/hourly_detail_card.dart';
 
 class ForecastDetailScreen extends ConsumerStatefulWidget {
   final String cityName;

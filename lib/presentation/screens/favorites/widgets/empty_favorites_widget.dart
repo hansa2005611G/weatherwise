@@ -15,6 +15,7 @@ class EmptyFavoritesWidget extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(32),
               decoration: BoxDecoration(
+                // ignore: deprecated_member_use
                 color: Theme.of(context).primaryColor. withOpacity(0.1),
                 shape: BoxShape.circle,
               ),

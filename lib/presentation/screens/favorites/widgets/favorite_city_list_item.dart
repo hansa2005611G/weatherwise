@@ -48,6 +48,7 @@ class FavoriteCityListItem extends ConsumerWidget {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
+                  // ignore: deprecated_member_use
                   color: _getWeatherColor().withOpacity(0.1),
                   shape: BoxShape.circle,
                 ),
@@ -150,9 +151,9 @@ class FavoriteCityListItem extends ConsumerWidget {
               // Menu button
               PopupMenuButton(
                 itemBuilder: (context) => [
-                  PopupMenuItem(
+                  const PopupMenuItem(
                     value: 'edit',
-                    child: const Row(
+                    child: Row(
                       children: [
                         Icon(Icons.edit, size: 20),
                         SizedBox(width: 8),
@@ -160,9 +161,9 @@ class FavoriteCityListItem extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  PopupMenuItem(
+                  const PopupMenuItem(
                     value: 'delete',
-                    child: const Row(
+                    child: Row(
                       children: [
                         Icon(Icons.delete, size: 20, color:  Colors.red),
                         SizedBox(width: 8),

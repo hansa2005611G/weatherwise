@@ -74,6 +74,7 @@ class AppTheme {
     ),
 
     chipTheme: ChipThemeData(
+      // ignore: deprecated_member_use
       backgroundColor: AppColors. primary. withOpacity(0.1),
       labelStyle: GoogleFonts.poppins(
         color: AppColors.primary,

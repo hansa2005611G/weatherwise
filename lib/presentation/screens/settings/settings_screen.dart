@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:animate_do/animate_do.dart';
@@ -6,7 +8,6 @@ import 'widgets/settings_section.dart';
 import 'widgets/settings_tile.dart';
 import 'widgets/theme_selector.dart';
 import 'widgets/about_section.dart';
-import '../../../core/constants/app_constants.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});

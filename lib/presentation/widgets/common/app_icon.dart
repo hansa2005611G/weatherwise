@@ -21,12 +21,14 @@ class AppIcon extends StatelessWidget {
           end: Alignment.bottomRight,
           colors: [
             color ?? Theme.of(context).primaryColor,
+            // ignore: deprecated_member_use
             (color ?? Theme.of(context).primaryColor).withOpacity(0.6),
           ],
         ),
         borderRadius: BorderRadius.circular(size * 0.2),
         boxShadow:  [
           BoxShadow(
+            // ignore: deprecated_member_use
             color: (color ?? Theme.of(context).primaryColor).withOpacity(0.3),
             blurRadius: 8,
             offset: const Offset(0, 4),

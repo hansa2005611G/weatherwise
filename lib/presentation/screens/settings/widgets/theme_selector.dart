@@ -66,11 +66,13 @@ class ThemeSelector extends StatelessWidget {
           border: Border.all(
             color: isSelected
                 ? Theme. of(context).primaryColor
+                // ignore: deprecated_member_use
                 : Colors.grey.withOpacity(0.3),
             width: isSelected ? 2 : 1,
           ),
           borderRadius: BorderRadius. circular(12),
           color: isSelected
+              // ignore: deprecated_member_use
               ? Theme.of(context).primaryColor.withOpacity(0.1)
               : null,
         ),
@@ -81,6 +83,7 @@ class ThemeSelector extends StatelessWidget {
               decoration: BoxDecoration(
                 color: isSelected
                     ? Theme.of(context).primaryColor
+                    // ignore: deprecated_member_use
                     : Colors.grey.withOpacity(0.2),
                 shape: BoxShape.circle,
               ),

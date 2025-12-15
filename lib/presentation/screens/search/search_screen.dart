@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:animate_do/animate_do.dart';
 import '../../providers/search_provider.dart';
 import '../../providers/weather_provider.dart';
-import '../../providers/favorites_provider.dart';
 import 'widgets/search_bar_widget.dart';
 import 'widgets/recent_searches_section.dart';
 import 'widgets/popular_cities_section.dart';
@@ -130,9 +129,11 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
         decoration: BoxDecoration(
+          // ignore: deprecated_member_use
           color: Theme.of(context).primaryColor.withOpacity(0.1),
           borderRadius: BorderRadius. circular(12),
           border: Border.all(
+            // ignore: deprecated_member_use
             color: Theme.of(context).primaryColor. withOpacity(0.3),
             width: 1,
           ),
@@ -297,7 +298,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
     );
 
     try {
-      // TODO: Implement actual location fetching with geolocator
+
       // For now, we'll use a default location
       await Future.delayed(const Duration(seconds: 1));
       

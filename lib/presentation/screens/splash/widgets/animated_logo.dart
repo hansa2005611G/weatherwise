@@ -62,9 +62,11 @@ class _AnimatedLogoState extends State<AnimatedLogo>
             height: 150,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
+              // ignore: deprecated_member_use
               color: Colors.white.withOpacity(0.2),
               boxShadow: [
                 BoxShadow(
+                  // ignore: deprecated_member_use
                   color: Colors.white.withOpacity(0.3),
                   blurRadius:  30,
                   spreadRadius: 10,
@@ -82,6 +84,7 @@ class _AnimatedLogoState extends State<AnimatedLogo>
                     color: Colors.white,
                     boxShadow:  [
                       BoxShadow(
+                        // ignore: deprecated_member_use
                         color: Colors. black.withOpacity(0.1),
                         blurRadius:  20,
                         offset: const Offset(0, 10),
